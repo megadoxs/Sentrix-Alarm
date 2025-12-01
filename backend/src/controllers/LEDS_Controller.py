@@ -49,12 +49,14 @@ class LEDSController:
             self.leds[0].on()
 
     async def alert(self):
+        self.leds[0].off()
         try:
             while True:
                 self.leds[2].toggle()
                 await asyncio.sleep(self.interval)
         except asyncio.CancelledError:
             self.leds[2].off()
+            self.leds[0].on()
 
     
     def deinit(self):

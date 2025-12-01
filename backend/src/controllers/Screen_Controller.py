@@ -28,6 +28,10 @@ class Screen_Controller:
         except asyncio.CancelledError:
             self.lcd.clear()
 
+    def alert(self):
+        self.lcd.clear()
+        self.lcd.message = "ALERT"
+
     def _update_display(self):
         self.lcd.clear()
         self.lcd.message = f"{self.line1}\n{self.line2}"

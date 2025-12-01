@@ -13,13 +13,21 @@ class Buzzer:
     def off(self):
         self.pin.value = False
 
-    async def warning(self):
+    async def warning(self, interval):
         try:
             while True:
                 self.on()
-                await asyncio.sleep(1)
+                await asyncio.sleep(interval)
                 self.off()
-                await asyncio.sleep(1)
+                await asyncio.sleep(interval)
+        except asyncio.CancelledError:
+            self.off()
+
+    async def alert(self):
+        try:
+            while True:
+                self.on()
+                await asyncio.sleep(0.5)
         except asyncio.CancelledError:
             self.off()
 
