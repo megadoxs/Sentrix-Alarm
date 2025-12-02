@@ -621,6 +621,8 @@ libcamera-still -o test.jpg
 # Check camera enabled
 sudo raspi-config
 ```
+## Link to Deployed Flask App
+https://iot-project-flask-4.onrender.com
 
 **MQTT not connecting**:
 - Verify credentials in `.env`
